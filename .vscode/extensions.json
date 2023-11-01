@@ -4,8 +4,13 @@
 
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
-		"yzhang.markdown-all-in-one"
+		"bmewburn.vscode-intelephense-client",
+		"yzhang.markdown-all-in-one",
+		"mtxr.sqltools",
+		"mtxr.sqltools-driver-mysql"
 	],
 	// List of extensions recommended by VSCodium that should not be recommended for users of this workspace.
-	"unwantedRecommendations": []
+	"unwantedRecommendations": [
+		"vscode.php-language-features",
+	]
 }

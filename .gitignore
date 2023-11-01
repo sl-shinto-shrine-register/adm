@@ -9,3 +9,10 @@ vendor
 
 # Nginx logs
 logs
+
+# SQL dumps
+data
+
+# Temporary data
+# (currently local MariaDB dev database)
+tmp
