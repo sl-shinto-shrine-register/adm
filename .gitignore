@@ -1,2 +1,11 @@
 # VSCode FTP connection
 .vscode/sftp.json
+
+# Composer dependencies
+vendor
+
+# Environment variables
+.env
+
+# Nginx logs
+logs

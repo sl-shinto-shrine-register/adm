@@ -1,0 +1,21 @@
+{
+    "name": "slsr/adm",
+    "description": "Admin interface of the SLSR Project",
+    "type": "project",
+    "license": "AGPL-3.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vivien Richter",
+            "email": "vivien-richter@outlook.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.4.0"
+    }
+}

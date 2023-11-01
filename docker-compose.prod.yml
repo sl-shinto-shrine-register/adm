@@ -1,0 +1,45 @@
+version: '2.4'
+
+networks:
+  slsr-adm:
+    driver: bridge
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: images/Dockerfile.app
+    image: slsr/adm-app:latest
+    container_name: app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    #volumes:
+    #  - ./php.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - slsr-adm
+
+  www:
+    build:
+      context: .
+      dockerfile: images/Dockerfile.www
+    image: slsr/adm-www:latest
+    container_name: www
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      SERVICE_NAME: www
+      SERVICE_TAGS: dev
+    volumes:
+      - ./logs:/var/log/nginx
+    #  - ./:/var/www
+    #  - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - slsr-adm
+    depends_on:
+      - app
