@@ -11,6 +11,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy application
 COPY app/ app/
 COPY public/ public/
+RUN rm -r public/static/
 COPY composer.json composer.lock ./
 RUN chown -R www-data:www-data ./
 RUN chmod -R 544 ./
