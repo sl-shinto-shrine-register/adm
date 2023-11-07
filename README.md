@@ -5,7 +5,6 @@
 - [Contribution](#contribution)
   - [Quick start](#quick-start)
   - [IDE](#ide)
-  - [Dependency orcestration](#dependency-orcestration)
 - [Deployment](#deployment)
 - [License](#license)
 
@@ -17,11 +16,15 @@ Feel free to open pull requests.
 
 ### Quick start
 1. Copy the complete SQL data dumps into `data/*.sql`.
-2. Use the development environment variables:
+2. Install all dependencies by using the latest [Docker](https://www.docker.com) image of [Composer](https://getcomposer.org).
+    ```bash
+    docker run --rm -it -v "$(pwd):/app" composer/composer i --ignore-platform-reqs
+    ```
+3. Use the development environment variables:
     ```bash
     cp .env.dev .env
     ```
-3. Build and start all [Docker](https://www.docker.com) container 
+4. Build and start all [Docker](https://www.docker.com) container 
     ```bash
     docker compose up -d
     ```
@@ -32,14 +35,6 @@ VSCode/[VSCodium](https://vscodium.com) with the following extensions:
 - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one): Readme TOS generation
 - [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools): SQL client
 - [SQLTools MySQL/MariaDB/TiDB](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-mysql): MariaDB driver for the SQL client
-
-### Dependency orcestration
-This project uses [Composer](https://getcomposer.org).
-You may use the latest [Docker](https://www.docker.com) image:
-```bash
-docker pull composer/composer
-docker run --rm -it -v "$(pwd)/app:/app" composer/composer install
-```
 
 ## Deployment
 Please take the `.env.prod` as an reference and change the `MARIADB_ROOT_PASSWORD` environment variable to an secure random passphrase by using:

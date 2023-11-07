@@ -11,7 +11,8 @@ vendor
 logs
 
 # SQL dumps
-data
+data/*
+!data/users.sql
 
 # Temporary data
 # (currently local MariaDB dev database)
